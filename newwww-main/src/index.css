@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* WebXcels Design System - Colorful & Vibrant */
+
+@layer base {
+  :root {
+    --background: 0 0% 99%;
+    --foreground: 230 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 230 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 25% 10%;
+
+    /* Vibrant teal-blue primary */
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 230 15% 95%;
+    --secondary-foreground: 230 25% 15%;
+
+    --muted: 230 15% 95%;
+    --muted-foreground: 230 10% 45%;
+
+    --accent: 174 62% 47%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 230 15% 90%;
+    --input: 230 15% 90%;
+    --ring: 262 83% 58%;
+
+    --radius: 0.75rem;
+
+    /* Custom brand tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(262, 83%, 58%), hsl(174, 62%, 47%));
+    --gradient-warm: linear-gradient(135deg, hsl(340, 82%, 52%), hsl(36, 100%, 60%));
+    --gradient-cool: linear-gradient(135deg, hsl(230, 94%, 62%), hsl(262, 83%, 58%));
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 262 83% 58%;
+  }
+
+  .dark {
+    --background: 230 25% 6%;
+    --foreground: 0 0% 96%;
+
+    --card: 230 20% 9%;
+    --card-foreground: 0 0% 96%;
+
+    --popover: 230 20% 9%;
+    --popover-foreground: 0 0% 96%;
+
+    --primary: 262 83% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 230 15% 14%;
+    --secondary-foreground: 0 0% 96%;
+
+    --muted: 230 15% 14%;
+    --muted-foreground: 230 10% 60%;
+
+    --accent: 174 62% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 230 15% 16%;
+    --input: 230 15% 16%;
+    --ring: 262 83% 65%;
+
+    --sidebar-background: 230 20% 8%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 262 83% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 230 15% 14%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 230 15% 16%;
+    --sidebar-ring: 262 83% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    @apply bg-primary/20 text-foreground;
+  }
+}
+
+@layer components {
+  .container-blog {
+    @apply mx-auto px-6 max-w-7xl;
+  }
+  
+  .nav-link {
+    @apply text-sm font-medium text-foreground hover:text-muted-foreground transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded px-2 py-1;
+  }
+  
+  .nav-link-active {
+    @apply nav-link text-primary;
+  }
+  
+  .blog-card {
+    @apply bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 border border-border;
+  }
+  
+  .blog-meta {
+    @apply text-xs font-medium text-muted-foreground uppercase tracking-wide;
+  }
+  
+  .blog-title {
+    @apply text-xl font-bold text-foreground leading-tight;
+  }
+  
+  .blog-excerpt {
+    @apply text-muted-foreground leading-relaxed;
+  }
+  
+  .featured-title {
+    @apply text-4xl font-bold text-foreground leading-tight;
+  }
+  
+  .section-title {
+    @apply text-2xl font-bold text-foreground mb-8;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .glass {
+    @apply bg-card/80 backdrop-blur-sm;
+  }
+
+  .skeleton {
+    @apply bg-muted animate-pulse rounded-md;
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
+  }
+
+  /* Gradient text utility */
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(262, 83%, 58%), hsl(174, 62%, 47%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  .prose-dark {
+    --tw-prose-body: hsl(var(--muted-foreground));
+    --tw-prose-headings: hsl(var(--foreground));
+    --tw-prose-links: hsl(var(--primary));
+    --tw-prose-bold: hsl(var(--foreground));
+    --tw-prose-counters: hsl(var(--muted-foreground));
+    --tw-prose-bullets: hsl(var(--muted-foreground));
+    --tw-prose-hr: hsl(var(--border));
+    --tw-prose-quotes: hsl(var(--foreground));
+    --tw-prose-quote-borders: hsl(var(--border));
+    --tw-prose-captions: hsl(var(--muted-foreground));
+    --tw-prose-code: hsl(var(--foreground));
+    --tw-prose-pre-code: hsl(var(--foreground));
+    --tw-prose-pre-bg: hsl(var(--muted));
+  }
+}
+
