@@ -131,7 +131,7 @@ const AuthModal = () => {
         <p className="text-center text-xs text-muted-foreground mt-4">
           {authModalTab === 'login' ? (
             <>
-              Don't have an account?{' '}
+              Don't have an account?{''}
               <button
                 type="button"
                 onClick={() => setAuthModalTab('signup')}
